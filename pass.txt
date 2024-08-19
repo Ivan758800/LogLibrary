@@ -1,1 +1,1 @@
-
+*Here will be the hash of your password. If you want to change the password - erase all text from this file. Before using the program erase this text*

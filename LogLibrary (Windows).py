@@ -6,8 +6,7 @@ import hashlib
 
 print("LogLibary v.0.8.5")
 print('')
-basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\System\path.txt"
-pnpath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\phone numbers.txt"
+basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files"
 
 
 
@@ -24,44 +23,38 @@ def check_password(hashed_password, user_password):
 
 
 def reading(p2):
-    with open(basepath, 'r') as nf:
-        p1 = nf.read()
-    with open(p1 + p2, "r", encoding='utf-8') as logfile:
+    with open(basepath+'\\'+p2, 'r', encoding='utf-8') as logfile:
         lfcontent = logfile.read()
     return lfcontent
 
 
 def open4edit(p2):
-    with open(basepath, 'r') as nf:
-        p1 = nf.read()
-        logfile = open(p1 + p2, "w+", encoding='utf-8')
-        lfcontent = logfile.read()
-        print('Before editing version:')
-        print(lfcontent)
-        print('Your current version:')
-        elf = input()
-        logfile.write(elf)
-        logfile.close()
+    with open(basepath+'\\'+p2, 'r', encoding='utf-8') as logfiler:
+        lfcontent = logfiler.read()
+    print('Before editing version:')
+    print(lfcontent)
+    print('Your current version:')
+    with open(basepath+'\\'+p2, 'w+', encoding='utf-8') as logfilew:
+        lf = input()
+        logfilew.write(lf)
 
 
 def create(p2):
-    with open(basepath, 'r') as nf:
-        p1 = nf.read()
-    logfile = open(p1 + p2, "w+", encoding='utf-8')
-    logtext = input('Type your text: ')
-    logfile.write(logtext)
-    logfile.close()
+    with open(basepath+'\\'+p2, 'w+', encoding='utf-8') as logfile:
+        logtext = input('Type your text: ')
+        logfile.write(logtext)
 
 
 def findnum():
-    with open(pnpath, 'r+', encoding='utf-8') as txtfile:
+    with open(basepath+"\\phone numbers.txt", 'r+', encoding='utf-8') as txtfile:
         contents = txtfile.read().split('\n')
-        if contents == ['-:-']:
+        if contents == ['']:
             print("Your phone number's book is curently empty")
             return None
         phones = {}
         for i in contents:
             i = i.lower().split(':')
+            print(i)
             phones[i[0]] = phones.get(i[0], []) + [i[1]]
         [print(key, *phones[key]) for key in phones.keys()]
         s = input().lower()
@@ -69,7 +62,7 @@ def findnum():
 
 
 def addnum():
-    with open(pnpath, 'a', encoding='utf-8') as txtfile:
+    with open(basepath+"\\phone numbers.txt", 'a', encoding='utf-8') as txtfile:
         print("type in new number in format <name>:<number>")
         while True:
             s = input()
@@ -83,7 +76,7 @@ def addnum():
 
 
 counter = 0
-with open(r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\System\pass.txt", "r") as my_file:
+with open(basepath+"\\pass.txt", "r") as my_file:
     filec = my_file.read()    
 
 if filec != "":
@@ -121,7 +114,7 @@ else:
 
 pw = answer
 hash_pw = hash_password(pw)
-with open(r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\System\pass.txt", "w") as file:
+with open(basepath+"\pass.txt", "w") as file:
     file.write(hash_pw)
 
 
@@ -144,20 +137,20 @@ while True:
     in_com = input('Please enter a command to proced: ').lower()
     if in_com == 'read':
         p2 = input('Enter file name: ')
-        if p2[-4] != '.txt':
+        if p2[-4:] != '.txt':
             p2 += '.txt'
         rp2 = reading(p2)
         print(rp2) 
         continue
     if in_com == 'edit':
         p2 = input('Enter file name: ')
-        if p2[-4] != '.txt':
+        if p2[-4:] != '.txt':
             p2 += '.txt'
         open4edit(p2)
         continue
     if in_com == 'create file':
         p2 = input('Enter file name: ')
-        if p2[-4] != '.txt':
+        if p2[-4:] != '.txt':
             p2 += '.txt'
         create(p2)
         continue

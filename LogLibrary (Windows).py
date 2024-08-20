@@ -1,7 +1,7 @@
 import time
 import uuid
 import hashlib
-
+import os
 
 
 print("LogLibary v.0.8.5")

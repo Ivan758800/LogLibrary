@@ -54,11 +54,13 @@ def findnum():
         phones = {}
         for i in contents:
             i = i.lower().split(':')
-            print(i)
             phones[i[0]] = phones.get(i[0], []) + [i[1]]
         [print(key, *phones[key]) for key in phones.keys()]
         s = input().lower()
-        print(phones.get(s, f"The '{s}' is not in the list"))
+        if s not in phones.keys():
+            print(f"The '{s}' is not in the list")
+        else:
+            print(*phones[s])
 
 
 def addnum():

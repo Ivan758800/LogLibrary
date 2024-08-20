@@ -6,7 +6,7 @@ import hashlib
 
 print("LogLibary v.0.8.5")
 print('')
-basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files"
+basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\"
 
 
 
@@ -23,30 +23,30 @@ def check_password(hashed_password, user_password):
 
 
 def reading(p2):
-    with open(basepath+'\\'+p2, 'r', encoding='utf-8') as logfile:
+    with open(basepath+p2, 'r', encoding='utf-8') as logfile:
         lfcontent = logfile.read()
     return lfcontent
 
 
 def open4edit(p2):
-    with open(basepath+'\\'+p2, 'r', encoding='utf-8') as logfiler:
+    with open(basepath+p2, 'r', encoding='utf-8') as logfiler:
         lfcontent = logfiler.read()
     print('Before editing version:')
     print(lfcontent)
     print('Your current version:')
-    with open(basepath+'\\'+p2, 'w+', encoding='utf-8') as logfilew:
+    with open(basepath+p2, 'w+', encoding='utf-8') as logfilew:
         lf = input()
         logfilew.write(lf)
 
 
 def create(p2):
-    with open(basepath+'\\'+p2, 'w+', encoding='utf-8') as logfile:
+    with open(basepath+p2, 'w+', encoding='utf-8') as logfile:
         logtext = input('Type your text: ')
         logfile.write(logtext)
 
 
 def findnum():
-    with open(basepath+"\\phone numbers.txt", 'r+', encoding='utf-8') as txtfile:
+    with open(basepath+"phone numbers.txt", 'r+', encoding='utf-8') as txtfile:
         contents = txtfile.read().split('\n')
         if contents == ['-:- - - - - - - -']:
             print("Your phone number's book is curently empty")
@@ -64,7 +64,7 @@ def findnum():
 
 
 def addnum():
-    with open(basepath+"\\phone numbers.txt", 'a', encoding='utf-8') as txtfile:
+    with open(basepath+"phone numbers.txt", 'a', encoding='utf-8') as txtfile:
         print("type in new number in format <name>:<number>")
         while True:
             s = input()
@@ -78,7 +78,7 @@ def addnum():
 
 
 counter = 0
-with open(basepath+"\\pass.txt", "r") as my_file:
+with open(basepath+"pass.txt", "r") as my_file:
     filec = my_file.read()    
 
 if filec != "":
@@ -116,7 +116,7 @@ else:
 
 pw = answer
 hash_pw = hash_password(pw)
-with open(basepath+"\pass.txt", "w") as file:
+with open(basepath+"pass.txt", "w") as file:
     file.write(hash_pw)
 
 

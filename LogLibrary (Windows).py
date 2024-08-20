@@ -56,6 +56,7 @@ def findnum():
             i = i.lower().split(':')
             phones[i[0]] = phones.get(i[0], []) + [i[1]]
         [print(key, *phones[key]) for key in phones.keys()]
+        print('- - - - - - - - -')
         s = input().lower()
         if s not in phones.keys():
             print(f"The '{s}' is not in the list")

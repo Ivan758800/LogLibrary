@@ -6,7 +6,7 @@ import os
 
 print("LogLibary v.0.8.5")
 print('')
-basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\"
+basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\\"
 
 
 

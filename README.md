@@ -12,6 +12,6 @@ If you want to test this project, there are some instructions for it:
     (sorry, you have to do it, 'cause it's not the final version).
 
 This is it. Let me now if there are any bugs in the project,
-I will answer as soon as I can. The updates will he updates will be coming eventually.
+I will answer as soon as I can. The updates will be coming eventually.
 
 Have a good day!

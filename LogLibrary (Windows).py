@@ -48,7 +48,7 @@ def create(p2):
 def findnum():
     with open(basepath+"\\phone numbers.txt", 'r+', encoding='utf-8') as txtfile:
         contents = txtfile.read().split('\n')
-        if contents == ['']:
+        if contents == ['-:- - - - - - - -']:
             print("Your phone number's book is curently empty")
             return None
         phones = {}

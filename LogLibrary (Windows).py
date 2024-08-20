@@ -136,11 +136,14 @@ print('')
 
 
 while True:
+    files = os.listdir(basepath)
     in_com = input('Please enter a command to proced: ').lower()
     if in_com == 'read':
         p2 = input('Enter file name: ')
         if p2[-4:] != '.txt':
             p2 += '.txt'
+        if p2 not in files:
+            print(f"File '{p2}' doesn't exist")
         rp2 = reading(p2)
         print(rp2) 
         continue
@@ -148,6 +151,8 @@ while True:
         p2 = input('Enter file name: ')
         if p2[-4:] != '.txt':
             p2 += '.txt'
+        if p2 not in files:
+            print(f"File '{p2}' doesn't exist")
         open4edit(p2)
         continue
     if in_com == 'create file':

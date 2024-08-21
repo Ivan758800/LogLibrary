@@ -4,7 +4,7 @@ import hashlib
 import os
 
 
-print("LogLibary v.0.8.5")
+print("LogLibary v.0.8.6")
 print('')
 basepath = r"C:\Users\ivan\Documents\My Python Projects\LogLibrary\Program files\\"
 

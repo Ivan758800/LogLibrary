@@ -4,7 +4,7 @@ import hashlib
 import os
 
 
-print("LogLibary v.0.8.5")
+print("LogLibary v.0.8.6")
 print('')
 basepath = "/home/ivan/Documents/LogLibrary/Program files/"
 
@@ -131,14 +131,14 @@ print('   Create file - to create new .txt files')
 print('   Close - to close program')
 print('   Find phone number - to find a phone number')
 print('   Add new phone number - to add new phone number')
+print('   Delete file - to delete .txt files')
 print('====================================================')
-print('')
 
 
 
 while True:
     files = os.listdir(basepath)
-    in_com = input('Please enter a command to proced: ').lower()
+    in_com = input('\nPlease enter a command to proced: ').lower()
     if in_com == 'read':
         p2 = input('Enter file name: ')
         if p2[-4:] != '.txt':
@@ -169,6 +169,19 @@ while True:
         continue
     if in_com == 'add new phone number':
         addnum()
+        continue
+    if in_com == 'delete file':
+        p2 = input('Enter file name: ')
+        if p2 == 'pass' or p2 == 'pass.txt' or p2 == 'phone numbers' or p2 == 'phone numbers.txt':
+            print(f'{p2} is a system file and cannot be deleted')
+            continue
+        if p2[-4:] != '.txt':
+            p2 += '.txt'
+        if p2 not in files:
+            print(f"File '{p2}' doesn't exist")
+            continue
+        os.remove(basepath+p2)
+        print('File deleted succssefuly\n')
         continue
     if in_com == 'close':
         quit()

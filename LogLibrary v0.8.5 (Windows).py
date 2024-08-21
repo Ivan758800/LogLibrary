@@ -168,6 +168,19 @@ while True:
     if in_com == 'add new phone number':
         addnum()
         continue
+    if in_com == 'delete file':
+        p2 = input('Enter file name: ')
+        if p2 == 'pass' or p2 == 'pass.txt' or p2 == 'phone numbers' or p2 == 'phone numbers.txt':
+            print(f'{p2} is a system file and cannot be deleted')
+            continue
+        if p2[-4:] != '.txt':
+            p2 += '.txt'
+        if p2 not in files:
+            print(f"File '{p2}' doesn't exist")
+            continue
+        os.remove(basepath+p2)
+        print('File deleted succssefuly\n')
+        continue
     if in_com == 'close':
         quit()
     if in_com == 'credits':

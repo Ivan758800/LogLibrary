@@ -131,14 +131,14 @@ print('   Create file - to create new .txt files')
 print('   Close - to close program')
 print('   Find phone number - to find a phone number')
 print('   Add new phone number - to add new phone number')
+print('   Delete file - to delete .txt files')
 print('====================================================')
-print('')
 
 
 
 while True:
     files = os.listdir(basepath)
-    in_com = input('Please enter a command to proced: ').lower()
+    in_com = input('\nPlease enter a command to proced: ').lower()
     if in_com == 'read':
         p2 = input('Enter file name: ')
         if p2[-4:] != '.txt':
